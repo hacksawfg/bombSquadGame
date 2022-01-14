@@ -10,7 +10,7 @@ namespace ConsoleGame
         {
             string letters = "abcdefghijklmnopqrstuvwxyz";
             int allowedWrongGuesses = 7;
-            string wordListLocation = "ADDLOCATION\\assets\\words.txt";
+            string wordListLocation = "ADDLOCATION\\assets\\words.txt"; // NEED TO CHANGE THIS LOCATTION TO THE APPROPRIATE PATH
 
             Console.Clear();
             Hangman game = new Hangman();
