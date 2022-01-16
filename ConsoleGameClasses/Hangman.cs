@@ -9,12 +9,33 @@ namespace ConsoleGameClasses
     public class Hangman
     {
 
-        public void Instructions(int allowedWrongGuesses, string letters)
+        public int Instructions(string letters)
         {
             Console.WriteLine("BOMB SQUAD!");
-            Console.WriteLine("Guess the password correctly to defuse the bomb, one letter at a time!");
-            Console.WriteLine($"Be careful though, {allowedWrongGuesses} wrong guesses and you explode!\n");
+            Console.WriteLine("Guess the password correctly to defuse the bomb, one letter at a time!\n");
+            Console.Write("Select difficulty (a) easy - 10 guesses, (b) normal - 7 guesses, (c) hard - 5 guesses: ");
+            char difficultySelection = Console.ReadKey().KeyChar;
+            int allowedWrongGuesses;
+            switch (difficultySelection)
+            {
+                case 'a':
+                    allowedWrongGuesses = 10;
+                    break;
+                case 'b':
+                    allowedWrongGuesses = 7;
+                    break;
+                case 'c':
+                    allowedWrongGuesses = 5;
+                    break;
+                default:
+                    Console.WriteLine("Invalid key selection, game will start at normal difficulty.");
+                    allowedWrongGuesses = 7;
+                    break;
+            }
+            Console.Clear();
+            Console.WriteLine($"\nBe careful, {allowedWrongGuesses} wrong guesses and you explode!\n");
             Console.WriteLine($"Remaining Letters: {letters}");
+            return allowedWrongGuesses;
         }
 
         public string GetWord(string wordlistLocation)

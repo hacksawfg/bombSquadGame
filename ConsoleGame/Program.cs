@@ -9,8 +9,7 @@ namespace ConsoleGame
         static void Main(string[] args)
         {
             string letters = "abcdefghijklmnopqrstuvwxyz";
-            int allowedWrongGuesses = 7;
-            string wordListLocation = "ADDLOCATION\\assets\\words.txt"; // NEED TO CHANGE THIS LOCATTION TO THE APPROPRIATE PATH
+            string wordListLocation = "..\\assets\\words.txt"; // NEED TO CHANGE THIS LOCATTION TO THE APPROPRIATE PATH
 
             Console.Clear();
             Hangman game = new Hangman();
@@ -20,7 +19,9 @@ namespace ConsoleGame
             while (playGame)
 
             {
-                game.Instructions(allowedWrongGuesses, letters);
+                // game.Instructions(letters);
+
+                int allowedWrongGuesses = game.Instructions(letters);
 
                 string pickedWord = game.GetWord(wordListLocation);
 
